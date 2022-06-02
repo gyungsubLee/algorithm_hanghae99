@@ -1,23 +1,19 @@
+# 가장 긴 팰린드롬(Manacher알고리즘, https://programmers.co.kr/learn/courses/30/lessons/12904)
+# -> 주어진 문자열이 펠린드롬인지 판별
+
 # palindrome: 양쪽이 대칭 되는 문자열 ex)abcba
-
-# 참조)https://programmers.co.kr/learn/courses/30/lessons/12904
-# point: Manacher알고리즘
-#문자열 배열에서 i번째 문자를 중심으로 하는 가장 긴 팰린드롬 길이를 반지름 r을 저장하여 사용한다.
-# O(n)
-
-# 문제) 주어진 문자열이 palindrome인지 확인해라.
 
 # 풀이1)리스트로 변환
 # point)
 # isalnum(): 영문자, 숫자 여부 판별
 # lower(): 모두 소문자 변환
-# list.pop(i): i번째 요소를 꺼내 그 요소를 return한다. (list에서 그 요소는 사라진다.)
-#           :()일 경우, 맨 마지막 요소를 출력한다.(list에서는 맨 마지막 요소가 삭제됨.)
+# list.pop(ㅑ): i번째 요소를 꺼내 그 요소를 return한다. (list에서 그 요소는 사라진다.)
+#               i 빈 값인 경우[ pop() ] list의 맨 마지막 요소를 꺼내 return 한다.
+#  
 import collections
 import re
 
 s = "A man, a plan, a canal: panama"
-
 
 def isPalindrome(self, s: str) -> bool:
     strs = []
@@ -37,6 +33,7 @@ def isPalindrome(self, s: str) -> bool:
 
 #     의문점) "s: str" parmeter에 데이터 타입 제한?, "self"는 this 인가?, "-> bool"은 bool데이터타입 명시?
             # -> 타입힌트! 타입 명시 맞음. self는 this랑 비슷한 의미, 파이썬 자체에서 기본 객체로 주어짐. 가져다가 쓰기만 하면 됨.
+
 
 
 
@@ -90,7 +87,7 @@ def isPalindrome2(self, s: str) -> bool:
 # 풀이3) 슬라이싱 사용
 def isPalindrome3(self, s: str) -> bool:
     s = s.lower()
-    #정규식의 불필요 문자 필터링 ->
+    # 정규식의 불필요 문자 필터링 ->
     s = re.sub('[^a-z0-9]', '', s)
 
     # 슬라이싱
@@ -113,6 +110,7 @@ def isPalindrome3(self, s: str) -> bool:
 # 가장 긴 팬린드롬 부분 문자열
 # point
 # expand:
+
 def longestPalindrome(self, s: str) -> str:
     #팰린드롬 판별 및 투포인터 확장
     def expand(left: int, right: int) -> str:

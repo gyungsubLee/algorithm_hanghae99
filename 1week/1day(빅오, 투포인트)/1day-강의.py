@@ -41,7 +41,7 @@ def is_number_exist(num, arr):
             return True
     return False
 
-#공간 복잡도는 흔치 않다. C언어를 사용하지 않는 이상 잘 안나옴.(인베디드?)
+#공간 복잡도 제한 문제는 흔치 않다. C언어를 사용하지 않는 이상 잘 안나옴.(인베디드?)
 
 
 # 문제3)
